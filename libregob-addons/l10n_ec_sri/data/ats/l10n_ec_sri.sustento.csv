@@ -1,0 +1,4 @@
+id,name,code,description,fecha_inicio,fecha_fin
+"sustento_01","01","01","Crédito Tributario para declaración de IVA (servicios y bienes distintos de inventarios y activos fijos)","2000-01-01",""
+"sustento_02","02","02","Costo o Gasto para declaración de IR (servicios y bienes distintos de inventarios y activos fijos)","2000-01-01",""
+"sustento_03","03","03","Activo Fijo - Crédito Tributario para declaración de IVA","2000-01-01",""

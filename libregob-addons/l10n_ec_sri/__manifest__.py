@@ -11,14 +11,14 @@
     'category': "Account",
     'depends': [
         'base',
+        'account',
     ],
     'data': [
         #'security/ir.model.access.csv',
         #'data/ir_cron.xml',
-        #'views/auditlog_view.xml',
-        #'views/http_session_view.xml',
-        #'views/http_request_view.xml',
+        'data/l10n_ec_sri.sustento.csv',
+        'views/account_invoice.xml',
     ],
     'application': False,
     'installable': True,
-}
+    }
