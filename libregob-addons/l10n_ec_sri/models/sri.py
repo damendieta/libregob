@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-form odoo import models, fields
+from odoo import models, fields
 
 
 class SriSustento(models.Model):
@@ -11,6 +11,7 @@ class SriSustento(models.Model):
     """
     name = fields.Char(string="Sustento tributario", )
     code = fields.Char(string="Code", )
+    codigo_tipo_comprobante = fields.Char(string="Comprobantes permitidos", )
     description = fields.Char(string="Description", )
     fecha_inicio = fields.Date(string="Fecha de inicio", )
     fecha_fin = fields.Date(string="Fecha de fin", )

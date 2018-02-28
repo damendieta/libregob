@@ -1,5 +1,6 @@
 FROM debian:stretch
-MAINTAINER Fábrica de Software Libre <libregob@fslibre.com>
+MAINTAINER  Fábrica de Software Libre <libregob@fslibre.com>
+# Basado en el dockerfile oridinal de Odoo.
 
 # Generate locale C.UTF-8 for postgres and general locale data
 ENV LANG C.UTF-8
@@ -34,16 +35,16 @@ RUN set -x; \
         && apt-get -y install -f --no-install-recommends \
         && rm -rf /var/lib/apt/lists/* odoo.deb
 
-RUN apt-get update
+# Copy entrypoint script and Odoo configuration file
+RUN pip3 install num2words xlwt
 
-# Instalamos las dependencias adicionales de LibreGOB
-# Install LibreGOB extra dependencies.
+## Instalamos las dependencias de LibreGOB.
+RUN apt-get update
 RUN set -x; \
         apt-get install -y --no-install-recommends \
            python3-lxml \
            python3-wheel \
            python3-pandas
-
 RUN set -x; \
         pip3 install xmltodict \
         openpyxl \
@@ -53,24 +54,15 @@ RUN set -x; \
         cachetools \
         pdfconv \
         oca-decorators \
-        httpagentparser
+        httpagentparser \
+        phonenumbers
 
 # Creamos el directorio libregob-addons
 RUN mkdir -p /mnt/libregob-addons
-
-# Copiamos los módulos de LibreGOB a la carpeta libregob-addons
 COPY ./libregob-addons /mnt/libregob-addons/
-
-# Cambiamos el propietario del directorio libregob-addons al usuario odoo
 RUN chown -R odoo /mnt/libregob-addons
 
-# Copy entrypoint script and Odoo configuration file
-RUN pip3 install num2words xlwt
 COPY ./entrypoint.sh /
-
-# Damos permisos de ejecución al entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
 COPY ./odoo.conf /etc/odoo/
 RUN chown odoo /etc/odoo/odoo.conf
 
@@ -80,7 +72,7 @@ RUN mkdir -p /mnt/extra-addons \
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
 # Expose Odoo services
-EXPOSE 8069 8071
+EXPOSE 8069 8071 8072
 
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf

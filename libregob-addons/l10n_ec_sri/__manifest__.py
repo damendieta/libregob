@@ -12,11 +12,16 @@
     'depends': [
         'base',
         'account',
+        'account_invoicing',
+        'account_tax_python',
     ],
     'data': [
-        #'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         #'data/ir_cron.xml',
-        'data/l10n_ec_sri.sustento.csv',
+        'data/ats/l10n_ec_sri.sustento.csv', #10
+        'data/104/account.account.tag.csv', #20
+        'data/104/account.tax.group.csv', #20
+        'data/104/account.tax.csv', #30
         'views/account_invoice.xml',
     ],
     'application': False,

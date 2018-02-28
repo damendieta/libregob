@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_l10n_ec_sri_comprobante_account_invoice","l10n_ec_sri.comprobante account invoice","model_l10n_ec_sri_comprobante","account.group_account_invoice","1","1","0","0"
+"access_l10n_ec_sri_comprobante_account_user","l10n_ec_sri.comprobante account user","model_l10n_ec_sri_comprobante","account.group_account_user","1","1","1","1"
+"access_l10n_ec_sri_sustento_account_invoice","l10n_ec_sri.sustento account invoice","model_l10n_ec_sri_sustento","account.group_account_invoice","1","0","0","0"
+"access_l10n_ec_sri_sustento_account_user","l10n_ec_sri.sustento account user","model_l10n_ec_sri_sustento","account.group_account_user","1","0","0","0"
